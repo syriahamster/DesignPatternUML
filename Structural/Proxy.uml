@@ -1,0 +1,20 @@
+# Ref https://www.petrockblock.com/2018/09/02/design-pattern-plantuml-proxy-pattern/
+# Ref https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9D%EC%8B%9C_%ED%8C%A8%ED%84%B4
+
+@startuml
+interface Subject {
+  {abstract} request()
+}
+together {
+  class RealSubject
+  class Proxy
+}
+ 
+RealSubject : request()
+Proxy : request()
+ 
+Subject <|-- RealSubject
+Subject <|-- Proxy
+RealSubject <- Proxy : subject
+
+@enduml
