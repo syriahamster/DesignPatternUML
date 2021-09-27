@@ -1,0 +1,22 @@
+# Ref https://ko.wikipedia.org/wiki/%EB%A9%94%EB%A9%98%ED%86%A0_%ED%8C%A8%ED%84%B4
+# Ref https://copynull.tistory.com/139
+
+@startuml
+title Memento
+
+class Caretaker
+class Memento {
+  state
+  getState()
+  setState()
+}
+class Originator {
+  state
+  setMemento(Memento)
+  createMemento()
+}
+
+Caretaker *-> Memento: memento
+Originator --> Memento
+
+@enduml

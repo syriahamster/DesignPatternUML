@@ -1,0 +1,24 @@
+# Ref https://ko.wikipedia.org/wiki/%EC%9D%B8%ED%84%B0%ED%94%84%EB%A6%AC%ED%84%B0_%ED%8C%A8%ED%84%B4
+
+@startuml
+title Interpreter
+
+class Context
+class Client
+abstract AbstractExpression
+
+class TerminalExpression
+class NonTerminalExpression
+
+AbstractExpression : interpret(Context)
+TerminalExpression : interpret(Context)
+NonTerminalExpression : interpret(Context)
+
+Client --> Context
+Client -> AbstractExpression
+AbstractExpression <|-- TerminalExpression
+AbstractExpression <|-- NonTerminalExpression
+
+AbstractExpression <--o NonTerminalExpression
+
+@enduml

@@ -1,0 +1,20 @@
+# Ref https://ko.wikipedia.org/wiki/%EC%A4%91%EC%9E%AC%EC%9E%90_%ED%8C%A8%ED%84%B4
+
+@startuml
+title Mediator
+
+class Mediator
+class ConcreteMediator
+class Colleague
+
+class ConcreteColleague1
+class ConcreteColleague2
+
+Mediator <- Colleague
+Mediator <|- ConcreteMediator
+Colleague <|-- ConcreteColleague1
+Colleague <|-- ConcreteColleague2
+ConcreteColleague1 <-- ConcreteMediator
+ConcreteColleague2 <-- ConcreteMediator
+
+@enduml

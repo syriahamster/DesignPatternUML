@@ -1,0 +1,21 @@
+# Ref https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85_%ED%8C%A8%ED%84%B4
+
+@startuml
+title Prototype
+
+class Client
+class Prototype
+
+class ConcretePrototype1
+class ConcretePrototype2
+
+Client : operation()
+Prototype : clone()
+ConcretePrototype1 : clone()
+ConcretePrototype2 : clone()
+
+Client -> Prototype
+Prototype <|-- ConcretePrototype1
+Prototype <|-- ConcretePrototype2
+
+@enduml

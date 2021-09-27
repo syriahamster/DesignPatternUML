@@ -1,0 +1,24 @@
+# Ref https://arisu1000.tistory.com/27684
+
+@startuml
+title Flyweight
+
+class FlyweightFactory {
+  getFlyweight(flyweight)
+}
+class Client {
+}
+
+interface Flyweight {
+  doOperation()
+}
+class ConcreteFlyweight {
+  doOperation()
+}
+
+FlyweightFactory o-> Flyweight
+FlyweightFactory <-- Client
+Client -> ConcreteFlyweight
+Flyweight <|.. ConcreteFlyweight
+
+@enduml

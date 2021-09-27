@@ -1,0 +1,26 @@
+# Ref https://ko.wikipedia.org/wiki/%EC%A0%84%EB%9E%B5_%ED%8C%A8%ED%84%B4
+
+@startuml
+title Strategy
+
+class Context {
+  operation()
+}
+interface Strategy {
+}
+class Strategy1 {
+  algorithm()
+}
+class Strategy2 {
+  algorithm()
+}
+
+Context *-> Strategy: Strategy
+Strategy1 --|> Strategy
+Strategy2 --|> Strategy
+
+note top of Context
+strategy.algorithm();
+end note
+
+@enduml

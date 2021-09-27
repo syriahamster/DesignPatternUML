@@ -1,0 +1,25 @@
+# Ref https://ko.wikipedia.org/wiki/%EB%B8%8C%EB%A6%AC%EC%A7%80_%ED%8C%A8%ED%84%B4
+
+@startuml
+title Bridge
+
+abstract Abstraction {
+  impl: Implementor
+  function()
+}
+class RefinedAbstraction {
+  refinedfunction()
+}
+
+interface Implementor {
+  implMethod()
+}
+class ConcreteImplementor {
+  implMethod()
+}
+
+Abstraction o-> Implementor
+Abstraction <|-- RefinedAbstraction
+Implementor <|-- ConcreteImplementor
+
+@enduml

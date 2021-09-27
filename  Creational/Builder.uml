@@ -1,0 +1,21 @@
+# Ref wiki
+
+@startuml
+title Builder
+
+class Director
+class Builder
+class ConcreteBuilder
+class Product
+
+Director : construct()
+Director : builder : Builder
+Builder : buildPart()
+ConcreteBuilder : buildPart()
+ConcreteBuilder : getResult()
+
+Director o- Builder
+Builder <|- ConcreteBuilder
+ConcreteBuilder ..> Product: <<create>>
+
+@enduml

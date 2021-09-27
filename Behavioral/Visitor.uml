@@ -1,0 +1,32 @@
+# Ref https://copynull.tistory.com/146
+
+@startuml
+title Visitor
+
+class Client
+interface Visitor {
+  visitElementA(ConcreteElementA)
+  visitElementB(ConcreteElementB)
+}
+class ConcreteVisitor {
+  visitElementA(ConcreteElementA)
+  visitElementB(ConcreteElementB)
+}
+
+interface Element {
+  accept(Visitor)
+}
+class ConcreteElementA {
+  accept(Visitor)
+}
+class ConcreteElementB {
+  accept(Visitor)
+}
+
+Visitor <- Client
+Client -> Element
+Visitor <|-- ConcreteVisitor
+Element <|-- ConcreteElementA
+Element <|-- ConcreteElementB
+
+@enduml

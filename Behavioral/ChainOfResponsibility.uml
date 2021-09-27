@@ -1,0 +1,21 @@
+# Ref https://copynull.tistory.com/143
+
+@startuml
+title Chain of Responsibility
+
+class Client
+class Handler
+
+class ConcreteHandler1
+class ConcreteHandler2
+
+Handler : handleRequest()
+ConcreteHandler1 : handleRequest()
+ConcreteHandler2 : handleRequest()
+
+Client -> Handler
+Handler -> Handler: successor
+Handler <|-- ConcreteHandler1
+Handler <|-- ConcreteHandler2
+
+@enduml
