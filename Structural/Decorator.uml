@@ -1,25 +1,25 @@
 # Ref https://www.petrockblock.com/2018/06/24/design-patterns-plantuml-decorator-pattern/
+# Ref https://gmlwjd9405.github.io/2018/07/09/decorator-pattern.html
+# Ref https://gdtbgl93.tistory.com/9
 
 @startuml
 skinparam componentStyle uml2
 
-class Component
-class ConcreteComponent
-class Decorator
+class Component {
+  methodA()
+  methodB()
+}
+class ConcreteComponent {
+  methodA()
+  methodB()
+}
+class Decorator {
+  Component
+  methodA()
+  methodB()
+}
 class ConcreteDecoratorA
 class ConcreteDecoratorB
-
-Component : methodA()
-Component : methodB()
-Component : // otherMethods()
-
-ConcreteComponent : methodA()
-ConcreteComponent : methodB()
-ConcreteComponent : // otherMethods()
-
-Decorator : methodA()
-Decorator : methodB()
-Decorator : // otherMethods()
 
 ConcreteDecoratorA : Component wrappedObject
 ConcreteDecoratorA : methodA()
@@ -33,11 +33,12 @@ ConcreteDecoratorB : methodA()
 ConcreteDecoratorB : methodB()
 ConcreteDecoratorB : // otherMethods()
 
-Component <|– ConcreteComponent
-Component <|– Decorator
-Decorator <|– ConcreteDecoratorA
-Decorator <|– ConcreteDecoratorB
-Decorator –> Component : component
+Component <|–- ConcreteComponent
+Component <|–- Decorator
+Component –-o Decorator
+Decorator <|–- ConcreteDecoratorA
+Decorator <|–- ConcreteDecoratorB
+
 note right on link
 Each component can be used on its
 own, or wrapped by a decorator
